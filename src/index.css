@@ -1,0 +1,783 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bellefair&display=swap");
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-family: "Barlow Condensed", sans-serif;
+}
+.appContainer {
+  background-size: cover;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+header {
+  margin: 0 0 0 auto;
+  display: flex;
+  height: 80px;
+  width: 96.18%;
+  padding-top: 2.5rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  height: 95px;
+  z-index: 1;
+}
+nav ul::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255 255 255 / 4%);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+  backdrop-filter: blur(30px);
+
+  z-index: -1;
+}
+nav::before {
+  content: "";
+  position: absolute;
+  bottom: 50%; /* Position the line in the middle vertically */
+
+  right: 96%;
+  width: 65%;
+  height: 1px; /* Adjust thickness as needed */
+  background-color: rgb(255 255 255 / 22%);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+  z-index: 2; /* Ensure the line appears above the backdrop-filtered pseudo-element */
+}
+nav ul li {
+  color: white;
+  list-style: none;
+  margin-right: 4rem;
+  font-weight: 400;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2.36px;
+}
+nav ul li,
+.destination .content ul li {
+  padding: 2rem 0;
+  border-bottom: 0.2rem solid rgba(255, 255, 255, 0);
+}
+nav ul li:hover,
+nav ul li:focus,
+.destination .content ul li:hover,
+.destination .content ul li:focus {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+nav ul .active,
+.destination .content ul .active {
+  border-color: rgba(255, 255, 255, 1);
+  color: white;
+}
+nav ul li span {
+  margin-right: 5px;
+  font-weight: 700;
+}
+.navBlur {
+  position: relative;
+  width: 57%;
+}
+
+.horizontal-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-image: linear-gradient(to right, transparent 50%, white 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 50%, white 100%);
+  mask-image: linear-gradient(to right, transparent 50%, white 100%);
+  z-index: 1;
+}
+
+.home .content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  display: flex;
+  padding-bottom: 4rem;
+  align-items: flex-end;
+
+  height: 100ch;
+  justify-content: space-around;
+}
+.home .content > div {
+  width: min-content;
+  margin-bottom: 2rem;
+}
+.home h1 {
+  font-family: "Bellefair", serif;
+  font-weight: 400;
+  font-size: 9em;
+  margin: 0;
+}
+.home h2 {
+  font-size: 2em;
+  letter-spacing: 4px;
+  color: #d0d6f9;
+  font-weight: 300;
+}
+.home p {
+  font-size: 1.25em;
+  font-weight: 300;
+  line-height: 32px;
+  height: auto;
+  color: #d0d6f9;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+.home button {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  padding: 0 2em;
+  background-color: white;
+  border: 1px solid rgba(151, 151, 151, 0.2);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25), 0 0 20px rgba(255, 255, 255, 0.5);
+  font-size: 2rem;
+  letter-spacing: 2px;
+  color: #0b0d17; /* Text color */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  outline: none; /* Remove default button outline */
+  border-radius: 50%;
+  font-family: "Bellefair", serif;
+  font-weight: 500;
+  margin-bottom: 3rem;
+}
+.home button::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1); /* White with 10% opacity */
+  border: none; /* Stroke with 20% opacity */
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25); /* Drop shadow */
+  backdrop-filter: blur(1px);
+  z-index: -1;
+  transition: transform 500ms ease-in-out;
+}
+.home button:hover::before,
+.home button:focus::before {
+  transform: scale(1.5);
+}
+.destination .content ul {
+  display: flex;
+  padding: 0;
+}
+.destination .content ul li {
+  color: #d0d6f9;
+  list-style: none;
+  margin: 0 1.75rem 1.5rem 0;
+  letter-spacing: 2.7px;
+  font-size: 16px;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.destination h3 {
+  color: white;
+  font-size: 2rem;
+  font-weight: 200;
+  margin: 5.5rem 0 0 10rem;
+  text-transform: uppercase;
+  letter-spacing: 4.75px;
+}
+.destination h3 span {
+  color: #505259;
+  margin-right: 1rem;
+  font-weight: 500;
+}
+.destination .content {
+  margin-top: 2.25rem;
+  display: flex;
+  flex-direction: column;
+}
+.destination .content > div {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  margin-bottom: 5rem;
+}
+.destination .content > div > div {
+  width: 28%;
+  margin-right: 6rem;
+}
+.destinationInfo h2 {
+  color: white;
+  font-size: 6rem;
+  font-family: "Bellefair", serif;
+  font-weight: 300;
+  margin: 1rem 0;
+}
+.destinationInfo img {
+  margin: 3.5rem 0 0 10rem;
+}
+.description {
+  color: #d0d6f9;
+  line-height: 2rem;
+  font-size: 18px;
+  padding: 0 0.25rem 3rem 0;
+  border-bottom: 1px solid #313443;
+  font-weight: 300;
+}
+.distanceAndTime {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin-top: 1.75rem;
+}
+.distanceAndTime div {
+  font-size: 28px;
+  font-weight: 300;
+  color: white;
+  font-family: "Bellefair", serif;
+  text-transform: uppercase;
+}
+.distanceAndTime h5 {
+  font-family: "Barlow condensed", serif;
+
+  margin: 0 0 15px 0;
+  font-size: 14px;
+  color: #d0d6f9;
+  letter-spacing: 2.36px;
+  font-weight: 300;
+}
+.crewInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 3rem;
+}
+.crew h3 {
+  letter-spacing: 4.72px;
+  color: white;
+  font-size: 28px;
+  font-weight: 300;
+  margin-left: 6.75rem;
+}
+.crew h3 span {
+  margin-right: 0.75rem;
+  color: #62646d;
+}
+
+.crewInfo > div {
+  width: 40%;
+  margin-bottom: 5rem;
+}
+
+.crewInfo h2 {
+  color: white;
+  font-family: "Bellefair", serif;
+  font-size: 3.75rem;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+.crewInfo h2 span {
+  font-size: 2rem;
+  display: block;
+  color: #6b6d72;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+.crewInfo p {
+  padding-right: 6rem;
+  font-size: 18px;
+  line-height: 2rem;
+  border: none;
+  font-weight: 300;
+}
+.crew ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+.crew li {
+  list-style: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin: 4rem 1.25rem 0 0;
+  cursor: pointer;
+}
+.crew .active {
+  background-color: white;
+}
+.crew .notActive {
+  background-color: #979797;
+}
+.crew img {
+  margin-right: 1.25rem;
+  align-self: end; /* Align the image to the end (bottom) of its grid cell */
+}
+.techInfo {
+  margin: 2rem 0 0 5rem;
+  display: flex;
+  align-items: center;
+  padding-bottom: 6rem;
+}
+.techDescription {
+  color: #d0d6f9;
+  line-height: 2rem;
+  width: 70%;
+  font-size: 18px;
+}
+.tech h3 {
+  color: white;
+  letter-spacing: 5px;
+  font-size: 1.75rem;
+  font-weight: 300;
+  margin: 5rem 0 0 7rem;
+}
+.tech h3 span {
+  font-weight: 600;
+  color: #62646d;
+  margin-right: 0.5rem;
+}
+.techInfo h2 {
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 300;
+  margin: 10px 0;
+  font-family: "Bellefair";
+}
+.techInfo h2 span {
+  color: #d0d6f9;
+  font-size: 16px;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+.techContent {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+.techContent > div:first-child {
+  margin: 0 2rem 0 4rem;
+}
+.tech ul {
+  margin: 0 0 0 1.5rem;
+  padding: 0;
+}
+.tech ul li {
+  cursor: pointer;
+  list-style: none;
+  margin-bottom: 1.5rem;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 200;
+  font-family: "Bellefair";
+}
+.tech .active {
+  color: black;
+  background-color: white;
+}
+.tech .notActive {
+  color: white;
+  background-color: inherit;
+  border: 1px solid #44454d;
+}
+@media (max-width: 1175px) {
+  .destinationInfo img {
+    margin-left: 0rem;
+  }
+  .destination .content > div > div {
+    margin-right: 0rem;
+  }
+  .destinationInfo h2 {
+    font-size: 4rem;
+  }
+  .distanceAndTime {
+    width: 100%;
+  }
+  .distanceAndTime div {
+    font-size: 1.25rem;
+  }
+  .destination .content ul li {
+    margin-right: 1rem;
+  }
+  nav ul {
+    margin: 0;
+  }
+  nav ul li {
+    margin-right: 2.5rem;
+
+    font-size: 14px;
+  }
+  nav ul li span {
+    margin-right: 1px;
+    font-weight: 500;
+  }
+  .crew img {
+    width: 50%;
+    margin-right: 0;
+  }
+  .crew h3 {
+    margin-left: 2.75rem;
+  }
+  .techInfo {
+    margin-left: 1rem;
+  }
+  .techContent > div:first-child {
+    margin: 0 0rem 0 1.25rem;
+  }
+  .techInfo h2 {
+    font-size: 3rem;
+  }
+  .techInfo img {
+    width: 50%;
+  }
+}
+@media (max-width: 775px) {
+  .appContainer {
+    background-size: cover;
+  }
+  nav::before {
+    content: none;
+  }
+  header {
+    padding: 0;
+  }
+  .home .content {
+    flex-direction: column;
+    margin-top: 5rem;
+    align-items: center;
+    padding-bottom: 8rem;
+  }
+  .home button {
+    justify-content: center;
+    margin-top: 5rem;
+    padding: 0 7rem;
+  }
+  .home h2 {
+    font-size: 1.25rem;
+  }
+  .home .content > div {
+    text-align: center;
+  }
+  .destination {
+  }
+  .destination .content > div {
+    flex-direction: column;
+    align-items: center;
+  }
+  .destination h3 {
+    margin: 3rem 0 0 2rem;
+    font-size: 1.25rem;
+  }
+  .destinationInfo img {
+    width: 300px;
+    height: 300px;
+    margin-top: 2.5rem;
+  }
+  .destination .content {
+    margin-top: 1.25rem;
+  }
+  .destination .content > div > div {
+    width: 70%;
+    text-align: center;
+    margin-top: 1rem;
+  }
+  .destination .content ul {
+    justify-content: center;
+  }
+
+  .destination .content ul li {
+    padding: 1rem 0;
+  }
+  .destination .content ul li {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin: 0 2rem 0.5rem 0;
+  }
+  .distanceAndTime {
+    justify-content: space-around;
+  }
+  nav ul li span {
+    display: none;
+  }
+  .navBlur {
+    width: 62%;
+  }
+  .crewInfo {
+    flex-direction: column;
+    margin-top: 2rem;
+  }
+  .crew img {
+    align-self: center;
+  }
+  .crew ul {
+    justify-content: center;
+    margin-left: 2rem;
+  }
+
+  .crewInfo > div {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    padding-bottom: 2rem;
+  }
+  .crewInfo p {
+    padding: 0 6rem;
+    text-align: center;
+  }
+  .crewInfo h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 5px 0;
+  }
+  .crewInfo h2 span {
+    font-size: 1.5rem;
+  }
+  .crew h3 {
+    margin: 3rem 0 3rem 2.25rem;
+    font-size: 1.25rem;
+  }
+  .crew li {
+    width: 10px;
+    height: 10px;
+    margin-top: 2rem;
+    margin-right: 1.25rem;
+  }
+  .techInfo {
+    flex-direction: column-reverse;
+    margin: 0;
+    padding: 0;
+  }
+  .techContent {
+    flex-direction: column-reverse;
+  }
+  .tech ul {
+    display: flex;
+  }
+  .tech ul li {
+    margin: 4rem 1.25rem 0 0;
+    height: 60px;
+    width: 60px;
+  }
+  .techInfo img {
+    width: 100%;
+  }
+  .tech h3 {
+    margin: 2rem 0 4rem 2rem;
+    font-size: 1.25rem;
+  }
+  .techContent > div:first-child {
+    text-align: center;
+    margin-top: 2.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (max-width: 625px) {
+  nav ul li {
+    margin-right: 1.25rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .appContainer {
+  }
+  header {
+    padding-top: 1rem;
+  }
+  .mobileNavBar button {
+    background-color: inherit;
+    border: none;
+    margin-right: 1.25rem;
+    align-self: end;
+  }
+
+  .destinationInfo h2 {
+    font-size: 3.5rem;
+    margin: 0;
+  }
+  .destinationInfo img {
+    width: 170px;
+    height: 170px;
+    margin-top: 1rem;
+  }
+  .destination .description {
+    font-size: 15px;
+    line-height: 25px;
+    padding: 0 1.75rem 1.5rem;
+  }
+  .destination h3 {
+    font-size: 1rem;
+    text-align: center;
+    letter-spacing: 2.7px;
+    font-weight: 500;
+    margin: 1rem 0 0 0;
+  }
+  .destination .content > div > div {
+    width: 100%;
+  }
+  .destination .content ul li {
+    font-size: 14px;
+    margin-right: 1.25rem;
+  }
+  .destination h3 span {
+    margin-right: 0.75rem;
+  }
+  .distanceAndTime {
+    flex-direction: column;
+  }
+  .distanceAndTime div:nth-child(1) {
+    margin-bottom: 2rem;
+  }
+  .distanceAndTime div {
+    font-size: 1.75rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    justify-content: flex-start;
+    z-index: 2;
+    padding: 2rem 0 0 0;
+  }
+  nav ul::before {
+    background-color: rgb(255 255 255 / 4%);
+    height: 100vh;
+    filter: blur(3rem);
+  }
+  nav ul li {
+    width: 80%;
+    display: flex;
+    border: none;
+    margin: 1.5rem 0 0 0;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 2.75px;
+    padding: 1rem 1.25rem 0;
+  }
+  nav ul li.active {
+    border-right: 5px solid white;
+  }
+  nav ul li span {
+    display: flex;
+    z-index: 32;
+    margin-right: 0.5rem;
+    font-weight: 500;
+  }
+  nav ul button {
+    margin-bottom: 2rem;
+  }
+  .crewInfo {
+    flex-direction: column-reverse;
+  }
+  .crew img {
+    padding: 0 4rem;
+    border-bottom: 2px solid #323544;
+  }
+  .crewInfo > div {
+    display: flex;
+    flex-direction: column;
+  }
+  .crewInfo > div ul {
+    order: -1;
+    margin-bottom: 1rem;
+  }
+  .crewInfo h2 {
+    font-size: 1.5rem;
+  }
+  .crewInfo h2 span {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .crewInfo p {
+    padding: 0 1rem;
+    font-size: 15px;
+  }
+  .crew h3 {
+    margin: 0.25rem 0 3rem 0rem;
+    font-size: 1rem;
+    text-align: center;
+  }
+  .home h1 {
+    font-size: 5rem;
+    margin-bottom: 2rem;
+  }
+  .home h2 {
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+  .home p {
+    font-size: 1rem;
+    line-height: 25px;
+    padding: 0 2rem;
+  }
+  .home .content > div {
+    width: 100%;
+  }
+  .home .content {
+    margin-top: 1.5rem;
+    justify-content: flex-start;
+    padding-bottom: 0;
+    height: auto;
+  }
+  .home button {
+    width: 150px;
+    margin: 4rem 0;
+  }
+  .tech ul li {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+    margin: 2.5rem 1rem 0 0;
+  }
+  .techContent > div:first-child {
+    margin-left: 0;
+  }
+  .tech ul {
+    margin: 0;
+  }
+  .techInfo h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 0;
+  }
+  .techInfo h2 span {
+    font-size: 14px;
+  }
+  .techDescription {
+    font-size: 15px;
+    width: 90%;
+    margin-bottom: 4rem;
+  }
+  .tech h3 {
+    text-align: center;
+    margin: 1rem 0 2.5rem 0rem;
+  }
+  .navBlur {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 65%;
+    z-index: 999;
+    overflow-y: auto;
+  }
+}
