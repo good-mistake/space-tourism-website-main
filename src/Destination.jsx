@@ -12,37 +12,39 @@ const Destination = () => {
   const navigationList = () => {
     return (
       <>
-        {" "}
-        <ul>
-          <li
-            onClick={() => handleButtonClick("MOON")}
-            className={` ${selectedOption === "MOON" ? "active" : ""}`}
-          >
-            {" "}
-            MOON
-          </li>
-          <li
-            onClick={() => handleButtonClick("MARS")}
-            className={` ${selectedOption === "MARS" ? "active" : ""}`}
-          >
-            {" "}
-            MARS
-          </li>
-          <li
-            onClick={() => handleButtonClick("EUROPA")}
-            className={` ${selectedOption === "EUROPA" ? "active" : ""}`}
-          >
-            {" "}
-            EUROPA
-          </li>
-          <li
-            onClick={() => handleButtonClick("TITAN")}
-            className={` ${selectedOption === "TITAN" ? "active" : ""}`}
-          >
-            {" "}
-            TITAN
-          </li>
-        </ul>
+        <nav>
+          {" "}
+          <ul>
+            <li
+              onClick={() => handleButtonClick("MOON")}
+              className={` ${selectedOption === "MOON" ? "active" : ""}`}
+            >
+              {" "}
+              MOON
+            </li>
+            <li
+              onClick={() => handleButtonClick("MARS")}
+              className={` ${selectedOption === "MARS" ? "active" : ""}`}
+            >
+              {" "}
+              MARS
+            </li>
+            <li
+              onClick={() => handleButtonClick("EUROPA")}
+              className={` ${selectedOption === "EUROPA" ? "active" : ""}`}
+            >
+              {" "}
+              EUROPA
+            </li>
+            <li
+              onClick={() => handleButtonClick("TITAN")}
+              className={` ${selectedOption === "TITAN" ? "active" : ""}`}
+            >
+              {" "}
+              TITAN
+            </li>
+          </ul>
+        </nav>
       </>
     );
   };
@@ -150,18 +152,22 @@ const Destination = () => {
             {" "}
             <img src={MoonImage} alt="Moon" />
             <div>
-              <ul>
-                <li
-                  onClick={() => handleButtonClick("MOON")}
-                  className="active"
-                >
-                  {" "}
-                  MOON
-                </li>
-                <li onClick={() => handleButtonClick("MARS")}> MARS</li>
-                <li onClick={() => handleButtonClick("EUROPA")}> EUROPA</li>
-                <li onClick={() => handleButtonClick("TITAN")}> TITAN</li>
-              </ul>
+              <nav>
+                {" "}
+                <ul>
+                  <li
+                    onClick={() => handleButtonClick("MOON")}
+                    className="active"
+                  >
+                    {" "}
+                    MOON
+                  </li>
+                  <li onClick={() => handleButtonClick("MARS")}> MARS</li>
+                  <li onClick={() => handleButtonClick("EUROPA")}> EUROPA</li>
+                  <li onClick={() => handleButtonClick("TITAN")}> TITAN</li>
+                </ul>
+              </nav>
+
               <h2>MOON</h2>
               <p className="description">
                 See our planet as you’ve never seen it before. A perfect
@@ -183,17 +189,17 @@ const Destination = () => {
     }
   };
   return (
-    <div className="step-container destination">
+    <section className="step-container destination">
       <div>
         <h3>
           <span>01</span>
           Pick your destination
         </h3>
         <div>
-          <div className="content">{listOption()}</div>
+          <article className="content">{listOption()}</article>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

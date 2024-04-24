@@ -1,11 +1,13 @@
 import React from "react";
 import { ReactComponent as Logo } from "./assets/shared/logo.svg";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ReactComponent as HamburgerIcon } from "./assets/shared/icon-hamburger.svg";
 import { ReactComponent as CloseBtn } from "./assets/shared/icon-close.svg";
 const Header = ({ step, setStep, updateBackgroundImg }) => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [isVisible, setIsVisible] = useState(false);
+  const navbarRef = useRef(null);
+
   const toggle = () => {
     setIsVisible(!isVisible);
   };
@@ -27,6 +29,27 @@ const Header = ({ step, setStep, updateBackgroundImg }) => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      const isToggleNavbarButtonClicked =
+        event.target.getAttribute("data-toggle") === "toggleNavbar";
+
+      if (
+        navbarRef.current &&
+        !navbarRef.current.contains(event.target) &&
+        !isToggleNavbarButtonClicked
+      ) {
+        setIsVisible(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [isVisible]);
+
   return (
     <div className="headerContainer">
       <header>
@@ -65,17 +88,14 @@ const Header = ({ step, setStep, updateBackgroundImg }) => {
             </ul>{" "}
           </nav>
         ) : (
-          <div className="mobileNavBar">
-            {!isVisible ? (
-              <button onClick={toggle}>
-                {" "}
-                <HamburgerIcon />
-              </button>
-            ) : (
-              ""
-            )}
+          <div className="mobileNavBar" ref={navbarRef}>
+            <button onClick={toggle} data-toggle="toggleNavbar">
+              {" "}
+              <HamburgerIcon />
+            </button>
+
             {isVisible && (
-              <nav className="navBlur">
+              <nav className={`navBlur ${isVisible ? "open" : "closed"}`}>
                 <ul>
                   {" "}
                   <button onClick={toggle}>

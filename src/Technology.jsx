@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 import VehicleImg from "./assets/technology/image-launch-vehicle-portrait.jpg";
 import SpaceportImg from "./assets/technology/image-spaceport-portrait.jpg";
 import CapsuleImg from "./assets/technology/image-space-capsule-portrait.jpg";
@@ -115,7 +114,7 @@ const Technology = () => {
                     pad!
                   </p>
                 </div>
-                <div>{navigationList()}</div>
+                <nav>{navigationList()}</nav>
               </div>{" "}
               <img src={backgroundImg} alt="Vehicle" />
             </div>
@@ -142,7 +141,7 @@ const Technology = () => {
                     Earth’s rotation for launch.
                   </p>
                 </div>
-                <div>{navigationList()}</div>
+                <nav>{navigationList()}</nav>
               </div>{" "}
               <img src={backgroundImg} alt="Spaceport" />
             </div>
@@ -170,7 +169,7 @@ const Technology = () => {
                     plenty of other activities to keep you entertained.
                   </p>
                 </div>
-                <div>{navigationList()}</div>
+                <nav>{navigationList()}</nav>
               </div>{" "}
               <img src={backgroundImg} alt="Capsule" />
             </div>
@@ -202,26 +201,29 @@ const Technology = () => {
                     </p>
                   </div>
                   <div>
-                    <ul>
-                      <li
-                        onClick={() => handleButtonClick("Vehicle")}
-                        className="active"
-                      >
-                        1
-                      </li>
-                      <li
-                        onClick={() => handleButtonClick("Spaceport")}
-                        className="notActive"
-                      >
-                        2
-                      </li>
-                      <li
-                        onClick={() => handleButtonClick("Capsule")}
-                        className="notActive"
-                      >
-                        3
-                      </li>
-                    </ul>
+                    <nav>
+                      {" "}
+                      <ul>
+                        <li
+                          onClick={() => handleButtonClick("Vehicle")}
+                          className="active"
+                        >
+                          1
+                        </li>
+                        <li
+                          onClick={() => handleButtonClick("Spaceport")}
+                          className="notActive"
+                        >
+                          2
+                        </li>
+                        <li
+                          onClick={() => handleButtonClick("Capsule")}
+                          className="notActive"
+                        >
+                          3
+                        </li>
+                      </ul>
+                    </nav>
                   </div>
                 </div>
               </div>{" "}
@@ -232,11 +234,11 @@ const Technology = () => {
     }
   };
   return (
-    <div className="step-container tech">
+    <section className="step-container tech">
       <div>
-        <div className="content">{listOption()}</div>
+        <article className="content">{listOption()}</article>
       </div>
-    </div>
+    </section>
   );
 };
 

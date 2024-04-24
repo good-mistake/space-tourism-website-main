@@ -13,39 +13,43 @@ const Crew = () => {
   const navigationList = () => {
     return (
       <>
-        {" "}
-        <ul>
-          <li
-            onClick={() => handleButtonClick("Douglas")}
-            className={` ${
-              selectedOption === "Douglas" ? "active" : "notActive"
-            }`}
-          >
-            {" "}
-          </li>
-          <li
-            onClick={() => handleButtonClick("Mark")}
-            className={` ${selectedOption === "Mark" ? "active" : "notActive"}`}
-          >
-            {" "}
-          </li>
-          <li
-            onClick={() => handleButtonClick("Victor")}
-            className={` ${
-              selectedOption === "Victor" ? "active" : "notActive"
-            }`}
-          >
-            {" "}
-          </li>
-          <li
-            onClick={() => handleButtonClick("Ansari")}
-            className={` ${
-              selectedOption === "Ansari" ? "active" : "notActive"
-            }`}
-          >
-            {" "}
-          </li>
-        </ul>
+        <nav>
+          {" "}
+          <ul>
+            <li
+              onClick={() => handleButtonClick("Douglas")}
+              className={` ${
+                selectedOption === "Douglas" ? "active" : "notActive"
+              }`}
+            >
+              {" "}
+            </li>
+            <li
+              onClick={() => handleButtonClick("Mark")}
+              className={` ${
+                selectedOption === "Mark" ? "active" : "notActive"
+              }`}
+            >
+              {" "}
+            </li>
+            <li
+              onClick={() => handleButtonClick("Victor")}
+              className={` ${
+                selectedOption === "Victor" ? "active" : "notActive"
+              }`}
+            >
+              {" "}
+            </li>
+            <li
+              onClick={() => handleButtonClick("Ansari")}
+              className={` ${
+                selectedOption === "Ansari" ? "active" : "notActive"
+              }`}
+            >
+              {" "}
+            </li>
+          </ul>
+        </nav>
       </>
     );
   };
@@ -193,24 +197,27 @@ const Crew = () => {
                   Corps pilot and former NASA astronaut. He launched into space
                   for the third time as commander of Crew Dragon Demo-2.
                 </p>
-                <ul>
-                  <li
-                    onClick={() => handleButtonClick("Douglas")}
-                    className="active"
-                  ></li>
-                  <li
-                    onClick={() => handleButtonClick("Mark")}
-                    className="notActive"
-                  ></li>
-                  <li
-                    onClick={() => handleButtonClick("Victor")}
-                    className="notActive"
-                  ></li>
-                  <li
-                    onClick={() => handleButtonClick("Ansari")}
-                    className="notActive"
-                  ></li>
-                </ul>
+                <nav>
+                  {" "}
+                  <ul>
+                    <li
+                      onClick={() => handleButtonClick("Douglas")}
+                      className="active"
+                    ></li>
+                    <li
+                      onClick={() => handleButtonClick("Mark")}
+                      className="notActive"
+                    ></li>
+                    <li
+                      onClick={() => handleButtonClick("Victor")}
+                      className="notActive"
+                    ></li>
+                    <li
+                      onClick={() => handleButtonClick("Ansari")}
+                      className="notActive"
+                    ></li>
+                  </ul>
+                </nav>
               </div>{" "}
               <img src={Douglas} alt="Douglas Hurley" />
             </div>
@@ -219,13 +226,13 @@ const Crew = () => {
     }
   };
   return (
-    <div className="step-container crew">
+    <section className="step-container crew">
       <div>
         <div>
-          <div className="content">{listOption()}</div>
+          <article className="content">{listOption()}</article>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

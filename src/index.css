@@ -26,7 +26,7 @@ header {
   align-items: center;
 }
 
-nav ul {
+.navBlur ul {
   display: flex;
   align-items: center;
   position: relative;
@@ -34,7 +34,7 @@ nav ul {
   height: 95px;
   z-index: 1;
 }
-nav ul::before {
+.navBlur ul::before {
   content: "";
   position: absolute;
   top: 0;
@@ -48,7 +48,7 @@ nav ul::before {
 
   z-index: -1;
 }
-nav::before {
+.navBlur::before {
   content: "";
   position: absolute;
   bottom: 50%; /* Position the line in the middle vertically */
@@ -61,7 +61,7 @@ nav::before {
 
   z-index: 2; /* Ensure the line appears above the backdrop-filtered pseudo-element */
 }
-nav ul li {
+.navBlur ul li {
   color: white;
   list-style: none;
   margin-right: 4rem;
@@ -70,23 +70,23 @@ nav ul li {
   text-transform: uppercase;
   letter-spacing: 2.36px;
 }
-nav ul li,
+.navBlur ul li,
 .destination .content ul li {
   padding: 2rem 0;
   border-bottom: 0.2rem solid rgba(255, 255, 255, 0);
 }
-nav ul li:hover,
-nav ul li:focus,
+.navBlur ul li:hover,
+.navBlur ul li:focus,
 .destination .content ul li:hover,
 .destination .content ul li:focus {
   border-color: rgba(255, 255, 255, 0.5);
 }
-nav ul .active,
+.navBlur ul .active,
 .destination .content ul .active {
   border-color: rgba(255, 255, 255, 1);
   color: white;
 }
-nav ul li span {
+.navBlur ul li span {
   margin-right: 5px;
   font-weight: 700;
 }
@@ -322,6 +322,10 @@ nav ul li span {
   background-color: white;
 }
 .crew .notActive {
+  background-color: #3b3b3b;
+}
+.crew .notActive:hover,
+.crew .notActive:focus {
   background-color: #979797;
 }
 .crew img {
@@ -400,6 +404,10 @@ nav ul li span {
   background-color: inherit;
   border: 1px solid #44454d;
 }
+.tech .notActive:hover,
+.tech .notActive:focus {
+  border: 1px solid #ffffff;
+}
 @media (max-width: 1175px) {
   .destinationInfo img {
     margin-left: 0rem;
@@ -419,15 +427,15 @@ nav ul li span {
   .destination .content ul li {
     margin-right: 1rem;
   }
-  nav ul {
+  .navBlur ul {
     margin: 0;
   }
-  nav ul li {
+  .navBlur ul li {
     margin-right: 2.5rem;
 
     font-size: 14px;
   }
-  nav ul li span {
+  .navBlur ul li span {
     margin-right: 1px;
     font-weight: 500;
   }
@@ -455,7 +463,7 @@ nav ul li span {
   .appContainer {
     background-size: cover;
   }
-  nav::before {
+  .navBlur::before {
     content: none;
   }
   header {
@@ -478,8 +486,7 @@ nav ul li span {
   .home .content > div {
     text-align: center;
   }
-  .destination {
-  }
+
   .destination .content > div {
     flex-direction: column;
     align-items: center;
@@ -516,7 +523,7 @@ nav ul li span {
   .distanceAndTime {
     justify-content: space-around;
   }
-  nav ul li span {
+  .navBlur ul li span {
     display: none;
   }
   .navBlur {
@@ -593,14 +600,12 @@ nav ul li span {
   }
 }
 @media (max-width: 625px) {
-  nav ul li {
+  .navBlur ul li {
     margin-right: 1.25rem;
   }
 }
 
 @media (max-width: 425px) {
-  .appContainer {
-  }
   header {
     padding-top: 1rem;
   }
@@ -652,18 +657,18 @@ nav ul li span {
     font-size: 1.75rem;
   }
 
-  nav ul {
+  .navBlur ul {
     flex-direction: column;
     justify-content: flex-start;
     z-index: 2;
     padding: 2rem 0 0 0;
   }
-  nav ul::before {
+  .navBlur ul::before {
     background-color: rgb(255 255 255 / 4%);
     height: 100vh;
     filter: blur(3rem);
   }
-  nav ul li {
+  .navBlur ul li {
     width: 80%;
     display: flex;
     border: none;
@@ -671,18 +676,18 @@ nav ul li span {
     font-size: 1rem;
     font-weight: 300;
     letter-spacing: 2.75px;
-    padding: 1rem 1.25rem 0;
+    padding: 1rem 1.5rem 0;
   }
-  nav ul li.active {
+  .navBlur ul li.active {
     border-right: 5px solid white;
   }
-  nav ul li span {
+  .navBlur ul li span {
     display: flex;
     z-index: 32;
     margin-right: 0.5rem;
     font-weight: 500;
   }
-  nav ul button {
+  .navBlur ul button {
     margin-bottom: 2rem;
   }
   .crewInfo {
@@ -772,11 +777,11 @@ nav ul li span {
     margin: 1rem 0 2.5rem 0rem;
   }
   .navBlur {
-    height: 100vh;
     position: fixed;
     top: 0;
     right: 0;
-    width: 65%;
+    width: 70%;
+    height: 100vh;
     z-index: 999;
     overflow-y: auto;
   }
