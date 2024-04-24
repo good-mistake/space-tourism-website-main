@@ -745,7 +745,10 @@ header {
   }
   .home button {
     width: 150px;
+    height: 150px;
     margin: 4rem 0;
+    font-size: 20px;
+    padding: 0 4rem;
   }
   .tech ul li {
     width: 40px;
